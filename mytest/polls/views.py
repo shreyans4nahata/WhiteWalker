@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from subprocess import call
 from django.views.static import serve
 from django.shortcuts import get_object_or_404
+from timeout import timeout
 import glob
 import os
 import datetime
@@ -13,32 +14,59 @@ import urllib.request
 import requests
 from bs4 import BeautifulSoup
 import youtube_dl
+
+
 def sumreq(request):
-    print("func started")
-    x=request.GET.get('srch','')        
-    url = 'http://www.youtube.com/results?'
-    args = {'search_query':x}
-    r = requests.get(url,params=args)
-    so=BeautifulSoup(r.content)
-    l=so.find_all("h3", {"class" :"yt-lockup-title" })
-    k=[]
-    k.append(str(l[0]).split(" "))
-    for i in k[0]:
-        if 'href' in i :
-            s=i
-            break
-    (a,b,c)=s.split('"')
-    final="https://www.youtube.com" + b
-    print(final)
-    time = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
-    time+="aaaaaa"
-    time+=".m4a"
-    print(time)
-    call(["youtube-dl","-f","141","-o",time,final])
-    filepath="C:/Python34/Scripts/mytest/*m4a"
-    y=glob.glob(filepath)
-    for a in y:
-        for time in a:
-            response =HttpResponse(a)
-            return response
+    try:
+
+        #response=''
+        d=''
+        print("func started")
+        x=request.GET.get('search','')        
+        url = 'http://www.youtube.com/results?'
+        args = {'search_query':x}
+        r = requests.get(url,params=args)
+        so=BeautifulSoup(r.content)
+        l=so.find_all("h3", {"class" :"yt-lockup-title" })
+        k=[]
+        k.append(str(l[0]).split(" "))
+        print(k[0])
+        for i in k[0]:
+            if 'href' in i :
+                s=i
+                print(i)
+                break
+        (a,b,c)=s.split('"')
+        print(b)
+        final="https://www.youtube.com" + b
+        print(final)
+        time="./static/"
+        time+=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        time+="aaaaaa"
+        time+=".%(ext)s"
+        time1="/static/"
+        time1+=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+        time1+="aaaaaa"
+        
+
+        print(time)
+   
+        call(["youtube-dl","-f","141","-o",time,final])
+        filepath="/home/ubuntu/Lanterns/server/WhiteWalker/mytest/static/*m4a"
+        y=glob.glob(filepath)
+        print(y)     
+        for d in y:
+            print(d)
+            if time1 in d:
+                print(time1)
+                response =HttpResponse(d)
+                return response
+    except Exception as e:
+        print(e)
+        pass         
+    
+#def index(request):
+    #template = loader.get_template('polls/index.html')
+ #   return render(request,'polls/index.html')
+    #return HttpResponse("YOOO !!! BITCHEEEAESSSSS.... Whatsup!!!!!@!@!@!@!")
     
