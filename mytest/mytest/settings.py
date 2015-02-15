@@ -77,7 +77,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+<<<<<<< HEAD
+STATICFILES_DIRS =(
+                os.path.join(BASE_DIR,'static'),
+)
 
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+=======
+
+>>>>>>> b189e1514c848c9ee5dfcf7cbe9bd1d48e4080bb
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
