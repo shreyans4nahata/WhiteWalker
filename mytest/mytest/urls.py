@@ -8,8 +8,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'mytest.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
-    (r'^$',TemplateView.as_view(template_name="index.html")),
-    (r'^index.html',TemplateView.as_view(template_name="index.html")),
+    url(r'^$',TemplateView.as_view(template_name="index.html")),
+    url(r'^index.html',TemplateView.as_view(template_name="index.html")),
     url(r'^polls/',include('polls.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

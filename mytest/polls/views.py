@@ -23,6 +23,8 @@ def sumreq(request):
         d=''
         print("func started")
         x=request.GET.get('search','')        
+        if x == '' :
+            return
         url = 'http://www.youtube.com/results?'
         args = {'search_query':x}
         r = requests.get(url,params=args)
