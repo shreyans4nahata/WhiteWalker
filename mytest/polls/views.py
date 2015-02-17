@@ -22,9 +22,15 @@ def sumreq(request):
         #response=''
         d=''
         print("func started")
-        x=request.GET.get('search','')        
-        if x == '' :
-            return
+        x=request.GET.get('search','')
+        k=request.GET.get('aorv','')
+        if k=='a':
+            ty= "141"
+        else:
+            ty= "18"
+
+        #if x == '' :
+         #   return
         url = 'http://www.youtube.com/results?'
         args = {'search_query':x}
         r = requests.get(url,params=args)
@@ -46,25 +52,35 @@ def sumreq(request):
         time+=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         time+="aaaaaa"
         time+=".%(ext)s"
+
         time1="/static/"
         time1+=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         time1+="aaaaaa"
         
 
         print(time)
-        call(["youtube-dl","-f","141","-o",time,final])
-        filepath="/home/ubuntu/Lanterns/server/WhiteWalker/mytest/static/*m4a"
+        call(["youtube-dl","-f",ty,"-o",time,final])
+        if ty =="141":
+            filepath="/home/ubuntu/Lanterns/server/WhiteWalker/mytest/static/*m4a"
+        else :
+            filepath="/home/ubuntu/Lanterns/server/WhiteWalker/mytest/static/*mp4"
+    
+        
         y=glob.glob(filepath)
         print(y)     
         for d in y:
             print(d)
-            if time1 in d:
+            if time in d:
                 response = HttpResponse()
-                fsock = open(a,'rb').read()
-                response = HttpResponse(fsock, content_type='audio/mpeg')
-                filename = x.strip(" ") + ".m4a" 
+                fsock = open(d,'rb').read()
+                response = HttpResponse(fsock, content_type='audio/mpeg/video')
+                if ty =="141":
+                    filename = x.strip(" ") + ".m4a" 
+                else:
+                    filename = x.strip(" ") + ".mp4" 
                 response['Content-Disposition'] = "attachement; filename=%s" % filename  
+                response['Content-Length'] = os.stat(d).st_size
                 return response
     except Exception as e:
         print(e)
-        pass         
+        pass
