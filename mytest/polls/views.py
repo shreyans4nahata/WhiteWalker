@@ -23,8 +23,8 @@ def sumreq(request):
         d=''
         print("func started")
         x=request.GET.get('search','')        
-        if x == '' :
-            return
+        #if x == '' :
+         #   return
         url = 'http://www.youtube.com/results?'
         args = {'search_query':x}
         r = requests.get(url,params=args)
@@ -39,9 +39,9 @@ def sumreq(request):
                 print(i)
                 break
         (a,b,c)=s.split('"')
-        print(b)
+        #print(b)
         final="https://www.youtube.com" + b
-        print(final)
+        #print(final)
         time="./static/"
         time+=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         time+="aaaaaa"
@@ -51,19 +51,20 @@ def sumreq(request):
         time1+="aaaaaa"
         
 
-        print(time)
+        #print(time)
         call(["youtube-dl","-f","141","-o",time,final])
         filepath="/home/ubuntu/Lanterns/server/WhiteWalker/mytest/static/*m4a"
         y=glob.glob(filepath)
-        print(y)     
+        #print(y)     
         for d in y:
-            print(d)
+            #print(d)
             if time1 in d:
                 response = HttpResponse()
-                fsock = open(a,'rb').read()
+                fsock = open(d,'rb').read()
                 response = HttpResponse(fsock, content_type='audio/mpeg')
                 filename = x.strip(" ") + ".m4a" 
                 response['Content-Disposition'] = "attachement; filename=%s" % filename  
+                response['Content-Length'] = os.stat(d).st_size
                 return response
     except Exception as e:
         print(e)
