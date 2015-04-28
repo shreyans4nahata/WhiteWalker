@@ -1,28 +1,43 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <title>NaN Song Downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <div class ='strt'>
 
-  <h1>Welcome to NaN song downloader</h1>
+  <h1 style="text-align:center;margin-top:40px;">Welcome to NaN song downloader</h1>
 </div>
 <div class = 'download'>
 	<form action='../polls/' method='get'>
-		<label> Enter the Song:</label>
+	
+		<!--<label> Enter the Song:</label>-->
+		<div class="form-group has-success">
+  <!--<label class="control-label" for="inputSuccess1"></label>-->
+  <input type="text" class="form-control" id="inputSuccess1" style="width:350px;margin-left:37%;margin-top:80px;" placeholder="Enter the song to download">
 
-		<input id='song_name' type='text' name='search' value=''><br/>
+</div>
+
+		<!--<input id='song_name' class="" type='text' name='search' value='' placeholder="Enter the song"><br/>-->
+		<div class="row" style="margin-top:40px;">
+		<div class="col-md-6 text-right" style="font-size:18px;">
 		<input type='radio' name='aorv' value='a' checked>Audio<br/>
+		</div>
+		<div class="col-md-6 text-left" style="font-size:18px;">
 		<input type='radio' name='aorv' value='v' >Video<br/>
-		
-		<input type='submit' value='Download this song'>
-
+		</div>
+		</div>
+		<div class="text-center" style="margin-top:40px;">
+		<input type='submit' class="btn btn-large btn-primary" value='Download' class="center" style="font-size:20px;">
+        </div>
 	</form>
 
 </div>
-<div>
+<!--<div>
   <p>Developed by: Shreyansh Nahata<br/>Special Thanks to:<br/>Akash Shakdwipeea<br/>Raghav Rastogi  </p>
-</div>
+</div>-->
 </body>
 </html>                                                                                                         
