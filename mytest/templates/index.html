@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block download %}
+<div class = 'download'>
+	<form action='../polls/' method='get'>
+		<label> Enter the Song:</label>
+
+		<input id='song_name' type='text' name='search' value=''><br/>
+		<input type='radio' name='aorv' value='a' checked>Audio<br/>
+		<input type='radio' name='aorv' value='v' >Video<br/>
+		
+		<input type='submit' value='Download this song'>
+
+	</form>
+
+</div>
+
+<div>
+
+
+	<table name = "top40">
+
+
+
+	
+<!-- 
+<td>
+{% for c in cover %}			
+		<td><img src="{{ c }}"></td>
+	{% endfor %}	
+</td>	
+ -->
+<tr>
+<td>	
+	{% for g in gaana %}
+				{{ g }}
+			{% endfor %}
+</td>	
+	<td>
+		{% for a in artist %}				
+		
+			{{ a }}
+		
+
+{% endfor %}
+	</td>
+		
+	</tr>
+	</table>
+</div>
+
+{% endblock %}
