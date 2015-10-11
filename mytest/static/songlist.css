@@ -1,0 +1,30 @@
+.top40{
+	width: 600px;
+	height: 80px;
+	background-color: #eeebe9;
+	position: relative;
+	
+
+}
+/*.left{
+	position: relative;
+}*/
+.right1{
+	float:left;
+	top:  0;
+	margin-left: 80px;
+	margin-bottom: 80px;
+	position: absolute;
+}
+.right2{
+	position: absolute;
+	clear: both;
+	float: left;
+	top: 30px;
+	margin-bottom: 80px;
+
+}
+.arrange{
+	
+	margin-bottom: 150px;
+}

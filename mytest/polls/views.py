@@ -28,6 +28,7 @@ def fetchit(request):
         l1 = so.find_all("div", {"class" :"cover" })
         gaana=[]
         artist=[]
+        nayi=[]
         for k in l:
             gaa,art=(k.get_text().split("\n\n\n"))
             art,som=art.split("\n\n")
@@ -38,14 +39,8 @@ def fetchit(request):
         for k in l1:
             cov=(k.find("img").get("src"))
             cover.append(cov)
-        d={}
         lst=[]
         context_dict = {'gaana':gaana, 'artist':artist,'cover':cover}
-        #for i in range(0,40):
-        #    d[i] = {'gaana':gaana[i],'artist':artist[i],'cover':cover[i]}
-        #response = render(request,'index.html',(d))
-        #print(json.dumps(d[0])) 
-        
         response = render(request,'index.html', context_dict)
         return response
 
@@ -55,9 +50,6 @@ def fetchit(request):
 
 def sumreq(request):
     try:
-        #fetchit(request)
-
-        #response=''
         d=''
         print("func started")
         x=request.GET.get('search','')
@@ -66,11 +58,10 @@ def sumreq(request):
             ty= "141"
         else:
             ty= "18"
-
-        #if x == '' :
-         #   return
+       
         url = 'http://www.youtube.com/results?'
-        args = {'search_query':x}
+        new_query= x + "song only"
+        args = {'search_query':new_query}
         r = requests.get(url,params=args)
         so=BeautifulSoup(r.content)
         l=so.find_all("h3", {"class" :"yt-lockup-title" })
@@ -119,8 +110,6 @@ def sumreq(request):
 
                 response['Content-Disposition'] = "attachement; filename=%s" % filename  
                 response['Content-Length'] = os.stat(d).st_size
-                
-
                 return response
     except Exception as e:
         print(e)

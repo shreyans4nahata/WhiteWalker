@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="songlist.css"> 
+</head>
+<body>
+
+
+<div>
+
+<table name = "top40" class="top40">
+
+<tr class="left">{% for c in cover %}<td><img src="{{ c }}" width="60" height="60"></td>
+	{% endfor %}</tr>	
+
+<tr class="right1">{% for g in gaana %}<td>{{ g }}</td>
+	{% endfor %}</tr>	
+	
+<tr class="right2">{% for a in artist %}<td>{{ a }}</td>
+{% endfor %}</tr>
+		
+</table>
+
+</div>
+
+</body>
+</html>

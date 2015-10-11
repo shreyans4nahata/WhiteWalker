@@ -1,6 +1,15 @@
-{% extends "base.html" %}
+<html>
+<head>
+  <title>NaN Song Downloader</title>
+<!-- <link rel="stylesheet" type="text/css" href="../static/songlist.css"></link> -->
+ </head>
 
-{% block download %}
+<body>
+<div class ='strt'>
+
+  <h1>Welcome to NaN song downloader</h1>
+</div>
+
 <div class = 'download'>
 	<form action='../polls/' method='get'>
 		<label> Enter the Song:</label>
@@ -15,38 +24,57 @@
 
 </div>
 
+
+
+
+
+
 <div>
 
+<table name = "top40" class="top40">
 
-	<table name = "top40">
-
-
-
-	
-<!-- 
-<td>
-{% for c in cover %}			
-		<td><img src="{{ c }}"></td>
-	{% endfor %}	
-</td>	
- -->
+			
 <tr>
-<td>	
-	{% for g in gaana %}
-				{{ g }}
-			{% endfor %}
-</td>	
+	<!-- 
+	{% for key,value in mydict.items  %}	
 	<td>
-		{% for a in artist %}				
-		
-			{{ a }}
-		
+		<img src="{{ value }}" height = "60"><br>
+	</td>	
+<td>	
+<span >{{ key }}</span>	
+</td>	
+{% endfor %} -->
 
+			
+<td>
+{% for c in cover  %}
+		<img src="{{ c }}" height = "60"><br>
+		
 {% endfor %}
-	</td>
-		
-	</tr>
-	</table>
-</div>
+</td>	
 
-{% endblock %}
+ 
+<td>	
+{% for g in gaana  %}	
+<span >{{ g }}</span>	<br><br>	<br>
+	{% endfor %}
+</td>	
+
+<td>	
+{% for a in artist  %}	
+<span >{{ a }}</span>			<br><br>	<br>
+	{% endfor %}
+</td>	
+
+
+</tr>	
+
+
+</table>
+</div>
+<div>
+  <p>Developed by: Shreyansh Nahata<br/>Special Thanks to:<br/>Akash Shakdwipeea<br/>Raghav Rastogi  </p>
+</div>
+</body>
+</html>                                                                                                         
+

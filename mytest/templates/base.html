@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>NaN Song Downloader</title>
+<link rel="stylesheet" type="text/css" href="songlist.css">
 </head>
 
 <body>
@@ -11,6 +12,33 @@
 
 {% block download %}
 {% endblock %}
+<!--
+<div>
+
+
+	<table name = "top40">
+
+{% for g in gaana %}
+		{% for a in artist %}
+		{% for c in cover %}
+		<tr>
+			
+			
+				
+		<td><img src="{{ c }}"></td>
+			<td>{{ g }}</td>
+			<td>{{ a }}</td>
+
+
+		</tr>
+		{% endfor %}
+		{% endfor %}
+		{% endfor %}
+
+
+	</table>
+</div>
+-->
 <div>
   <p>Developed by: Shreyansh Nahata<br/>Special Thanks to:<br/>Akash Shakdwipeea<br/>Raghav Rastogi  </p>
 </div>
