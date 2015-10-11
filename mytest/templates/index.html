@@ -1,80 +1,54 @@
-<html>
-<head>
-  <title>NaN Song Downloader</title>
-<!-- <link rel="stylesheet" type="text/css" href="../static/songlist.css"></link> -->
- </head>
+{% extends "base.html" %}
 
-<body>
-<div class ='strt'>
-
-  <h1>Welcome to NaN song downloader</h1>
-</div>
-
+{% block download %}
 <div class = 'download'>
-	<form action='../polls/' method='get'>
-		<label> Enter the Song:</label>
+        <form action='../polls/' method='get'>
+                <label> Enter the Song:</label>
 
-		<input id='song_name' type='text' name='search' value=''><br/>
-		<input type='radio' name='aorv' value='a' checked>Audio<br/>
-		<input type='radio' name='aorv' value='v' >Video<br/>
-		
-		<input type='submit' value='Download this song'>
+                <input id='song_name' type='text' name='search' value=''><br/>
+                <input type='radio' name='aorv' value='a' checked>Audio<br/>
+                <input type='radio' name='aorv' value='v' >Video<br/>
 
-	</form>
+                <input type='submit' value='Download this song'>
+
+        </form>
 
 </div>
 
-
-
-
-
-
 <div>
 
-<table name = "top40" class="top40">
 
-			
+        <table name = "top40">
+
 <tr>
-	<!-- 
-	{% for key,value in mydict.items  %}	
-	<td>
-		<img src="{{ value }}" height = "60"><br>
-	</td>	
-<td>	
-<span >{{ key }}</span>	
-</td>	
-{% endfor %} -->
-
-			
 <td>
-{% for c in cover  %}
-		<img src="{{ c }}" height = "60"><br>
-		
+
+                <td>
+{% for c in cover %}
+<img src="{{ c }}">
+<br/>
+        {% endfor %}
+
+</td>
+
+</td>
+
+
+<td>
+        {% for g in gaana %}
+                                {{ g }}<br/><br/><br/>
+                        {% endfor %}
+</td>
+        <td>
+                {% for a in artist %}
+  {{ a }} <br/><br/><br/>
+
+
 {% endfor %}
-</td>	
-
- 
-<td>	
-{% for g in gaana  %}	
-<span >{{ g }}</span>	<br><br>	<br>
-	{% endfor %}
-</td>	
-
-<td>	
-{% for a in artist  %}	
-<span >{{ a }}</span>			<br><br>	<br>
-	{% endfor %}
-</td>	
+        </td>
 
 
-</tr>	
-
-
-</table>
+        </table>
 </div>
-<div>
-  <p>Developed by: Shreyansh Nahata<br/>Special Thanks to:<br/>Akash Shakdwipeea<br/>Raghav Rastogi  </p>
-</div>
-</body>
-</html>                                                                                                         
 
+{% endblock %}

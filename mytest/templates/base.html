@@ -1,46 +1,27 @@
 <html>
+
 <head>
   <title>NaN Song Downloader</title>
-<link rel="stylesheet" type="text/css" href="songlist.css">
 </head>
+{% load static from staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/top.css" %}">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <body>
 <div class ='strt'>
 
   <h1>Welcome to NaN song downloader</h1>
 </div>
-
 {% block download %}
 {% endblock %}
-<!--
-<div>
-
-
-	<table name = "top40">
-
-{% for g in gaana %}
-		{% for a in artist %}
-		{% for c in cover %}
-		<tr>
-			
-			
-				
-		<td><img src="{{ c }}"></td>
-			<td>{{ g }}</td>
-			<td>{{ a }}</td>
-
-
-		</tr>
-		{% endfor %}
-		{% endfor %}
-		{% endfor %}
-
-
-	</table>
-</div>
--->
 <div>
   <p>Developed by: Shreyansh Nahata<br/>Special Thanks to:<br/>Akash Shakdwipeea<br/>Raghav Rastogi  </p>
 </div>
 </body>
-</html>                                                                                                         
+</html>       

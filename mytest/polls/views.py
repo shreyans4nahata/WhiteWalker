@@ -20,7 +20,7 @@ from django.shortcuts import render_to_response
 
 def fetchit(request):
     try:
-        print("chutiya")
+        print("song fetch called")
         url ="http://www.officialcharts.com/charts/uk-top-40-singles-chart/"
         r= requests.get(url)
         so = BeautifulSoup(r.content,"html.parser")
