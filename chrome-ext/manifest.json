@@ -1,0 +1,18 @@
+{
+	  "name": "Song-dl",
+	  "version": "0.0.1",
+	  "description": "Song downloader extension .",
+	  "icons": { "128": "icon.png" },
+	  "browser_action": {
+	    "default_title": "WhiteWalker",
+	    "default_icon": "icon.png",
+	    "default_popup": "initial.html"
+	  },
+   "permissions": [
+	    "downloads",
+	    "tabs",
+	    "activeTab"
+	  ],
+	  "manifest_version": 2,
+	  "content_security_policy": "img-src 'self' http://* https://*; script-src 'self'  ;object-src 'self'; connect-src http://google.com; frame-src data:"
+	}
