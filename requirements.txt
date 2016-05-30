@@ -1,0 +1,5 @@
+django==1.7
+BeautifulSoup4==4.4.1
+youtube_dl >= 2016.5.30.2 
+requests==2.2.1
+urllib3==1.7.1
