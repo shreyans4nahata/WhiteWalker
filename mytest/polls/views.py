@@ -50,12 +50,14 @@ def fetchit(request):
 
 def sumreq(request):
     try:
+        # call("rm -rf static/*m4a")
+        # call("rm -rf static/*mp4")
         d=''
         print("func started")
         x=request.GET.get('search','')
         k=request.GET.get('aorv','')
         if k=='a':
-            ty= "141"
+            ty= "140"
         else:
             ty= "18"
        
@@ -89,21 +91,23 @@ def sumreq(request):
 
         print(time)
         call(["youtube-dl","-f",ty,"-o",time,final])
-        if ty =="141":
-            filepath="../WhiteWalker/mytest/static/*m4a"
+        if ty =="140":
+            filepath="../../WhiteWalker/mytest/static/*m4a"
         else :
-            filepath="../WhiteWalker/mytest/static/*mp4"
+            filepath="../../WhiteWalker/mytest/static/*mp4"
     
         
         y=glob.glob(filepath)
         print(y)     
         for d in y:
             print(d)
-            if time in d:
+            
+            if time1 in d:
+                print(time1)
                 response = HttpResponse()
                 fsock = open(d,'rb').read()
                 response = HttpResponse(fsock, content_type='audio/mpeg/video')
-                if ty =="141":
+                if ty =="140":
                     filename = x.strip(" ") + ".m4a" 
                 else:
                     filename = x.strip(" ") + ".mp4"
