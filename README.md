@@ -26,6 +26,20 @@ Repository for youtube song listing and  downloading!!
     <br>
     The Server is started on port 3000.
     <br>
+  3) Use Extension:
+    <br>
+    For Chrome( Similar for others ):
+    <br>
+    -> Open the extensions control from settings menu.
+    <br>
+    -> Click on the 'Load Unpacked Extensions...' button.
+    <br>
+    -> Choose the chrome-ext folder.
+    <br>
+    It adds the song-dl extension. Use it to download your audio files. 
+    <br>
+    <b>Currently the extension requires local server to be deployed first.</b>
+    
 # Features:
   1. Listing of billboard UK top 40  songs.
   2. Download of the Audio or Video of any song or video on youtube.
