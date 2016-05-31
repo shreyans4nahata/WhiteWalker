@@ -20,5 +20,5 @@ for i in k[0]:
 final="https://www.youtube.com" + b
 print(final)
 ydl_opts={}
-call(["youtube-dl","-f","141",final])
+call(["youtube-dl","-f","140",final])
 
