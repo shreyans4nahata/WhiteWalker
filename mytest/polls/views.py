@@ -30,12 +30,12 @@ def fetchit(request):
         artist=[]
         nayi=[]
         for k in l:
+            print(k.get_text())
             gaa,art=(k.get_text().split("\n\n\n"))
             art,som=art.split("\n\n")
             gaana.append(gaa.strip("\n\n"))
             artist.append(art)
             cover=[]
-        
         for k in l1:
             cov=(k.find("img").get("src"))
             cover.append(cov)
