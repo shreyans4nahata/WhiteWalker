@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
 		console.log("Shreyansh to Rescue...!!!");
 			d = document;
 			var f = document.getElementById('dlform');
-			f.action = 'http://akphysics.ddns.net:3032/polls/';
-			var hey = 'http://akphysics.ddns.net:3032/polls/';
+			f.action = 'http://127.0.0.1:3000/polls/';
+			var hey = 'http://127.0.0.1:3000/polls/';
 			f.method = 'get';
 			var i = document.getElementById('song_name');
 
