@@ -9,7 +9,7 @@ Repository for youtube song listing and  downloading!!
     ```
     <br>
     ```
-    pip3 install requirements.txt
+    pip3 install -r requirements.txt
     ```
     <br>
     ```
