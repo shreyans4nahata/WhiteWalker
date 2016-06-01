@@ -30,7 +30,6 @@ def fetchit(request):
         artist=[]
         nayi=[]
         for k in l:
-            print(k.get_text())
             gaa,art=(k.get_text().split("\n\n\n"))
             art,som=art.split("\n\n")
             gaana.append(gaa.strip("\n\n"))
@@ -57,12 +56,13 @@ def sumreq(request):
         x=request.GET.get('search','')
         k=request.GET.get('aorv','')
         if k=='a':
+            new_query= x + " song only "
             ty= "140"
         else:
+            new_query= x +" "
             ty= "18"
        
         url = 'http://www.youtube.com/results?'
-        new_query= x + "song only"
         args = {'search_query':new_query}
         r = requests.get(url,params=args)
         so=BeautifulSoup(r.content)
