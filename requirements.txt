@@ -1,5 +1,5 @@
 django==2.2.27
 BeautifulSoup4==4.4.1
 youtube_dl >= 2016.5.30.2 
-requests==2.20.0
+requests==2.31.0
 urllib3==1.26.5
